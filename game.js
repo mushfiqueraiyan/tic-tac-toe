@@ -1,5 +1,6 @@
 let boxes = document.querySelectorAll(".box");
-let reset = document.querySelector("#reset");
+let resetGame = document.querySelector("#reset");
+let newGame = document.querySelector("#newGame")
 let wmsg = document.querySelector("#win")
 
 let turnO = true;
@@ -56,4 +57,18 @@ const disableBtn = () => {
         box.disabled = true;
     }
 };
+const enableBtn = () => {
+    for (let box of boxes) {
+        box.disabled = false;
+        box.innerText = ""
+        wmsg.innerText = ""
+    }
+};
 
+const reset = ()=>{
+    turnO = true;
+    enableBtn()
+}
+
+resetGame.addEventListener("click", reset)
+newGame.addEventListener("click", reset)
